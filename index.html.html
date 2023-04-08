@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<title>Stop Watch</title>
+<style>
+#watch{
+ width:300px;
+ height:150px;
+ background-color:blue;
+text-align:center;
+padding:20px;
+color:white;
+margin-top:210px;
+margin-left:500px;
+border-radius:5%;
+box-shadow:7px 10px 7px black;
+}
+#btn1,#btn2,#btn3{
+font-size:15px;
+padding:5px;
+margin:10px;
+width:55px;
+color:black;
+}
+</style>
+</head>
+<body>
+<div id="watch">
+<h1 id="display">start</h1>
+<input type="button" id="btn1" value="start" onclick="startval()">
+<input type="button" id="btn2" disabled value="stop" onclick="stopval()">
+<input type="button" id="btn3"  disabled value="pause" onclick="pauseval()">
+</div>
+<script>
+b1=document.getElementById("btn1");
+b2=document.getElementById("btn2");
+b3=document.getElementById("btn3");
+d=document.getElementById("display");
+i=0; 
+  function startval()
+  {
+   b1.disabled=true;
+   b2.disabled=false;
+   b3.disabled=false;
+   v=setInterval(fun,700);
+   function fun()
+   {
+    d.innerHTML=i;
+    i++;	
+   }
+  }
+   function stopval()
+  {
+   b1.disabled=false;
+   b2.disabled=true;
+   b3.disabled=true;
+   clearInterval(v);
+   i=0;
+   }
+   function pauseval()
+  {
+   b1.disabled=false;
+   b2.disabled=false;
+   b3.disabled=true;
+   clearInterval(v);
+   }
+</script>
+
+</body>
+</html>
